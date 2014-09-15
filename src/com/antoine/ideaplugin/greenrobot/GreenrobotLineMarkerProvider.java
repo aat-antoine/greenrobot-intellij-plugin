@@ -40,7 +40,7 @@ public class GreenrobotLineMarkerProvider implements LineMarkerProvider {
         PsiMethod method = PsiConsultantImpl.findMethod(element);
         return !SubscriberMetadata.isAnnotatedWithProducer(method);
       }
-      return falseDecider;
+      return false;
     }
   };
 

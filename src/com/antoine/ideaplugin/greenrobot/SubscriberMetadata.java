@@ -17,10 +17,10 @@ import org.jetbrains.annotations.Nullable;
 public class SubscriberMetadata {
 
   private static final ImmutableSet<SubscriberMetadata> subscribers = ImmutableSet.of(
-      new SubscriberMetadata("com.squareup.otto.Subscribe", "com.squareup.otto.Bus", "com.squareup.otto.Produce",
-          PickAction.Type.PRODUCER, PickAction.Type.EVENT_POST),
+      /*new SubscriberMetadata("com.squareup.otto.Subscribe", "com.squareup.otto.Bus", "com.squareup.otto.Produce",
+          PickAction.Type.PRODUCER, PickAction.Type.EVENT_POST),*/
 
-      new SubscriberMetadata("com.google.common.eventbus.Subscribe", "com.google.common.eventbus.EventBus", null,
+      new SubscriberMetadata(null, "de.greenrobot.event.EventBus", null,
           PickAction.Type.EVENT_POST)
   );
 
