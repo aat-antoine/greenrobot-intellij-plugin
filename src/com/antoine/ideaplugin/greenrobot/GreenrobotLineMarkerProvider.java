@@ -40,7 +40,7 @@ public class GreenrobotLineMarkerProvider implements LineMarkerProvider {
         PsiMethod method = PsiConsultantImpl.findMethod(element);
         return !SubscriberMetadata.isAnnotatedWithProducer(method);
       }
-      return false;
+      return falseDecider;
     }
   };
 
@@ -178,7 +178,7 @@ public class GreenrobotLineMarkerProvider implements LineMarkerProvider {
       PsiClass psiClass = (PsiClass) element;
       String qualifiedName = psiClass.getQualifiedName();
       if (qualifiedName != null) {
-        OttoProjectHandler ottoProjectHandler = OttoProjectHandler.get(element.getProject());
+        GreenrobotProjectHandler ottoProjectHandler = GreenrobotProjectHandler.get(element.getProject());
         if (ottoProjectHandler.isEventClass(qualifiedName)) {
           PsiIdentifier nameIdentifier = psiClass.getNameIdentifier();
           if (nameIdentifier != null) {
