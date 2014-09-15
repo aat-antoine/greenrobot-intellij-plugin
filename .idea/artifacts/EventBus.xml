@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="EventBus">
+    <output-path>$PROJECT_DIR$/out/artifacts/EventBus</output-path>
+    <root id="archive" name="EventBus.jar" />
+  </artifact>
+</component>
