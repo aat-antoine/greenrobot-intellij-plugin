@@ -38,7 +38,8 @@ public class GreenrobotLineMarkerProvider implements LineMarkerProvider {
       PsiElement element = ((UsageInfo2UsageAdapter) usage).getElement();
       if (element.getParent() instanceof PsiNewExpression) {
         PsiMethod method = PsiConsultantImpl.findMethod(element);
-        return !SubscriberMetadata.isAnnotatedWithProducer(method);
+        // return !SubscriberMetadata.isAnnotatedWithProducer(method);
+            return SubscriberMetadata.hasOnEventMethod(method);
       }
       return false;
     }
@@ -178,8 +179,8 @@ public class GreenrobotLineMarkerProvider implements LineMarkerProvider {
       PsiClass psiClass = (PsiClass) element;
       String qualifiedName = psiClass.getQualifiedName();
       if (qualifiedName != null) {
-        GreenrobotProjectHandler ottoProjectHandler = GreenrobotProjectHandler.get(element.getProject());
-        if (ottoProjectHandler.isEventClass(qualifiedName)) {
+        GreenrobotProjectHandler greenrobotProjectHandler = GreenrobotProjectHandler.get(element.getProject());
+        if (greenrobotProjectHandler.isEventClass(qualifiedName)) {
           PsiIdentifier nameIdentifier = psiClass.getNameIdentifier();
           if (nameIdentifier != null) {
             return new LineMarkerInfo<PsiClass>(psiClass, nameIdentifier.getTextRange(), ICON,

@@ -10,13 +10,12 @@
     ]]></description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+      1.0.0: Initial version.
     ]]>
   </change-notes>
 
   <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
-  <idea-version since-build="131"/>
+  <idea-version since-build="134.1061098"/>
 
   <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
        on how to target different products -->
@@ -34,10 +33,19 @@
 
   <project-components>
     <!-- Add your project components here -->
+    <component>
+      <implementation-class>com.antoine.ideaplugin.greenrobot.GreenrobotProjectHandler</implementation-class>
+    </component>
   </project-components>
 
   <actions>
     <!-- Add your actions here -->
   </actions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <codeInsight.lineMarkerProvider language="JAVA"
+        implementationClass="com.antoine.ideaplugin.greenrobot.GreenrobotLineMarkerProvider"/>
+    <implicitUsageProvider implementation="com.antoine.ideaplugin.greenrobot.GreenrobotImplicitUsageProvider"/>
+  </extensions>
 
 </idea-plugin>

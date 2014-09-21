@@ -76,6 +76,13 @@ public class SubscriberMetadata {
     return false;
   }
 
+  public static boolean hasOnEventMethod(PsiMethod method) {
+      if (method.getName().equals("OnEventMainThread")) {
+          return true;
+      }
+      return false;
+  }
+
   private final String subscriberAnnotationClassName;
   private final String busClassName;
   private final String producerClassName;
